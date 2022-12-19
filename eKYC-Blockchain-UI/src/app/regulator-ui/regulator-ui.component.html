@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="alert alert-success" *ngIf="success !== null">
+      {{success}}
+    </div>
+    <div class="alert alert-danger" *ngIf="error !== null">
+      {{error}}
+    </div>
+    <form [formGroup]="regulatorBody" (ngSubmit)="submitRegulatory()">
+      <div class="form-group row">
+        <div class="col">
+          <label>First Name</label>
+          <input type="text" class="form-control" placeholder="First name" formControlName="firstName">
+        </div>
+        <div class="col">
+          <label>Middle Name</label>
+          <input type="text" class="form-control" placeholder="Middle name" formControlName="middleName">
+        </div>
+        <div class="col">
+          <label>Last Name</label>
+          <input type="text" class="form-control" placeholder="Last name" formControlName="lastName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" placeholder="Date Of Birth" formControlName="dateOfBirth">
+        </div>
+        <div class="col">
+          <label>E-Mail</label>
+          <input type="email" class="form-control" placeholder="E-Mail" formControlName="email">
+        </div>
+        <div class="col">
+          <label>Mobile</label>
+          <input type="text" class="form-control" placeholder="Mobile Number" formControlName="mobile">
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <div class="col">
+          <label>Address Line 1</label>
+          <input type="text" class="form-control" placeholder="Address Line 1" formControlName="addressLine1">
+        </div>
+        <div class="col">
+          <label>Address Line 2</label>
+          <input type="text" class="form-control" placeholder="Address Line 2" formControlName="addressLine2">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label>City</label>
+          <input type="text" class="form-control" placeholder="City" formControlName="city">
+          <input type="hidden" class="form-control" placeholder="Country" value="INDIA" formControlName="country">
+        </div>
+        <div class="col">
+          <label>State</label>
+          <select id="inputState" class="form-control" formControlName="city">
+            <option selected>Choose...</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Bihar">Bihar</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Zip</label>
+          <input type="text" class="form-control" placeholder="Zip Code" formControlName="zipCode">
+        </div>
+      </div>
+      <button (click)="increment()" class="btn btn-primary"><mat-icon>add</mat-icon></button>
+      <div formArrayName="idType"
+       *ngFor="let item of regulatorBody.get('idType').controls; let i = index;">
+        <button *ngIf="i !== 0" class="btn btn-primary" (click)="delete(i)"><mat-icon>delete</mat-icon></button>
+        <div [formGroupName]="i" class="form-group row">
+          <div class="col">
+          <label>ID Proof Type</label>
+          <select class="form-control" formControlName="type">
+              <option selected>Choose...</option>
+              <option value="PAN">PAN</option>
+              <option value="AADHAR">AADHAR</option>
+              <option value="PASSPORT">PASSPORT</option>
+              <option value="DRIVING LICENCE">DRIVING LICENCE</option>
+              <option value="VOTER ID">VOTER</option>
+            </select>
+        </div>
+        <div class="col">
+          <label>ID Number</label>
+          <input type="text" class="form-control" placeholder="ID PROOF NUMBER" formControlName="idNumber">
+        </div>
+        <div class="col">
+          <label>Description</label>
+          <input type="text" class="form-control" placeholder="Description" formControlName="description">
+        </div>
+        </div>
+      </div>
+      <input class="btn btn-primary" type="submit" value="submit" [disabled]="!regulatorBody.valid">
+    </form>
+  </div>

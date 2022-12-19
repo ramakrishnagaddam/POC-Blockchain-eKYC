@@ -1,0 +1,7 @@
+.bg-light {
+    background-color: rgba(236, 48, 20, 0.9)!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: aliceblue;
+}

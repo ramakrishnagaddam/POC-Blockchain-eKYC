@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.0.M1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.attrahackathon</groupId>
+	<artifactId>attrahackathon</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>attrahackathon</name>
+	<description>Demo project for Spring Boot</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- <dependency> 
+	        <groupId>com.fasterxml.jackson.core</groupId> 
+	        <artifactId>jackson-databind</artifactId> 
+	        <version>2.5.3</version> 
+		</dependency>  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		
+		
+		<!--   <dependency>
+		        <groupId>org.mongodb</groupId>
+		        <artifactId>mongodb-driver-sync</artifactId>
+		        <version>3.10.1</version>
+		    </dependency> -->
+    
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- SYSTEM JARS -->
+		<dependency>
+			<groupId>cid</groupId>
+			<artifactId>cid</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${CID}</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>hamcrest-core</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+			<scope>system</scope>
+			<systemPath>${HAMCREST}</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>ipfs</groupId>
+			<artifactId>ipfs</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${IPFS}</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>multiaddr</groupId>
+			<artifactId>multiaddr</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${MULTIADDR}</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>multihash</groupId>
+			<artifactId>multihash</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${MULTIHASH}</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>multibase</groupId>
+			<artifactId>multibase</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${MULTIBASE}</systemPath>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.web3j</groupId>
+		  <artifactId>core</artifactId>
+		  <version>4.2.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.squareup.okio</groupId>
+			<artifactId>okio</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<CID>${basedir}/lib/cid.jar</CID>
+		<HAMCREST>${basedir}/lib/hamcrest-core-1.3.jar</HAMCREST>
+		<IPFS>${basedir}/lib/ipfs.jar</IPFS>
+		<MULTIADDR>${basedir}/lib/multiaddr.jar</MULTIADDR>
+		<MULTIHASH>${basedir}/lib/multihash.jar</MULTIHASH>
+		<MULTIBASE>${basedir}/lib/multibase.jar</MULTIBASE>
+	</properties>
+</project>

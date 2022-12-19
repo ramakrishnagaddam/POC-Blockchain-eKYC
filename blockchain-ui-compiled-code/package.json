@@ -1,0 +1,15 @@
+{
+  "name": "attra_hackathon",
+  "version": "1.0.0",
+  "description": "Hackathon Project",
+  "main": "index.js",
+  "dependencies": {
+    "web3": "^1.0.0-beta.52"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

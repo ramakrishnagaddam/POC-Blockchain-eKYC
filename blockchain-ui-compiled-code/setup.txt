@@ -1,0 +1,42 @@
+loadScript('E:/Blockchain/Hackathon/contract.js');
+
+"0x3c537e01317d9dd6792be803659d60aee2bfdb24"
+
+It will create bin and abi file 
+	solcjs register.sol --bin --abi --optimize -o E:/Blockchain/Hackathon/blockchain
+
+
+It will generate smart contract file in java : 
+	web3j solidity generate -b E:/Blockchain/Hackathon/blockchain/register_sol_Register.bin -a E:/Blockchain/Hackathon/blockchain/register_sol_Register.abi -o E:/Blockchain/API_Regulatory/attrahackathon/src/main/java -p com.connectBlockChain
+
+Create wallet :  ()
+	web3j wallet create
+
+Pass : Syntel123$
+
+
+---------------------------
+
+Steps to up the env: 
+In First CMD :
+
+	ganache-cli -m "<mnemonic>"
+
+
+In Second CMD :
+
+	cd E:\Blockchain\Hackathon
+
+	geth attach http://127.0.0.1:8545
+
+	loadScript("E:/Blockchain/Hackathon/contract.js")
+
+	register.address
+
+	To Submit the block : 
+		register.setInfo ("Sol", {from:web3.eth.accounts[0], gas: 1000000});
+
+
+		
+		
+

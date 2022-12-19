@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="alert alert-success" *ngIf="success !== null">
+      {{success}}
+    </div>
+    <div class="alert alert-danger" *ngIf="error !== null">
+      {{error}}
+    </div>
+    <form [formGroup]="regulatorBody">
+      <div class="form-group row">
+        <div class="col">
+          <label>First Name</label>
+          <input type="text" class="form-control" placeholder="First name" formControlName="firstName" readonly>
+        </div>
+        <div class="col">
+          <label>Middle Name</label>
+          <input type="text" class="form-control" placeholder="Middle name" formControlName="middleName" readonly>
+        </div>
+        <div class="col">
+          <label>Last Name</label>
+          <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" readonly>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" placeholder="Date Of Birth" formControlName="dateOfBirth" readonly>
+        </div>
+        <div class="col">
+          <label>E-Mail</label>
+          <input type="email" class="form-control" placeholder="E-Mail" formControlName="email" readonly>
+        </div>
+        <div class="col">
+          <label>Mobile</label>
+          <input type="text" class="form-control" placeholder="Mobile Number" formControlName="mobile" readonly>
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <div class="col">
+          <label>Address Line 1</label>
+          <input type="text" class="form-control" placeholder="Address Line 1" formControlName="addressLine1" readonly>
+        </div>
+        <div class="col">
+          <label>Address Line 2</label>
+          <input type="text" class="form-control" placeholder="Address Line 2" formControlName="addressLine2" readonly>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label>City</label>
+          <input type="text" class="form-control" placeholder="City" formControlName="city" readonly>
+          <input type="hidden" class="form-control" placeholder="Country" value="INDIA" formControlName="country">
+          <input type="hidden" class="form-control" placeholder="ID NUMBER" formControlName="primaryIdNumber">
+          <input type="hidden" class="form-control" placeholder="ID TYPE" formControlName="primaryIdType">
+        </div>
+        <div class="col">
+          <label>State</label>
+          <select id="inputState" class="form-control" formControlName="city" readonly>
+            <option selected>Choose...</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Bihar">Bihar</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Zip</label>
+          <input type="text" class="form-control" placeholder="Zip Code" formControlName="zipCode" readonly>
+        </div>
+      </div>
+      <div formArrayName="idType"
+       *ngFor="let item of regulatorBody.get('idType').controls; let i = index;">
+        <div [formGroupName]="i" class="form-group row">
+          <div class="col">
+            <label>ID Proof Type</label>
+            <select class="form-control" formControlName="type" readonly>
+              <option selected>Choose...</option>
+              <option value="PAN">PAN</option>
+              <option value="AADHAR">AADHAR</option>
+              <option value="PASSPORT">PASSPORT</option>
+              <option value="DRIVING LICENCE">DRIVING LICENCE</option>
+              <option value="VOTER ID">VOTER</option>
+            </select>
+          </div>
+          <div class="col">
+            <label>ID Number</label>
+            <input type="text" class="form-control" placeholder="ID PROOF NUMBER" formControlName="idNumber" readonly>
+          </div>
+          <div class="col">
+            <label>Description</label>
+            <input type="text" class="form-control" placeholder="Description" formControlName="description" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label>Notes</label>
+          <textarea class="form-control" formControlName="notes"></textarea>
+        </div>
+      </div>
+      <div class="form-group row" align="center">
+        <div class="col">
+            <button class="btn btn-primary" (click)="verifyKYC('APPROVED')" [disabled]="!regulatorBody.valid" *ngIf="!submitted">Approve</button> &nbsp;
+            <button class="btn btn-primary" (click)="verifyKYC('REJECTED')" [disabled]="!regulatorBody.valid" *ngIf="!submitted">Reject</button>
+            <button class="btn btn-primary" (click)="__dialogRef.close(submitted)" *ngIf="submitted">OK</button>
+        </div>
+      </div>
+    </form>
+  </div>

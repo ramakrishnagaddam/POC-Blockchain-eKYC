@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">e-KYC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/verify']">VERIFY KYC</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/kycDetails']">GET KYC DETAILS</a>
+        </li>
+      </ul>
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()" type="button">Logout</button>
+    </div>
+  </nav>
